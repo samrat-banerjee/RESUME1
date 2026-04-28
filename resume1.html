@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAMRAT BANERJEE - Software Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #6b7280; /* neutral gray */
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    a {
+      color:red;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #9333ea;
+      outline: none;
+    }
+    h1,h2,h3,h4 {
+      color: #111827;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 48px;
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #374151; /* darker gray */
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #4b5563;
+    }
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 24px 48px 24px;
+    }
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 1000;
+      padding: 24px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    header .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+    }
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: purple; 
+      letter-spacing: 0.05em;
+    }
+    nav a {
+      margin-left: 32px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #6b7280;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #db2777;
+      transition: width 0.3s ease;
+      border-radius: 1px;
+    }
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+      outline: none;
+    }
+    /* Sections */
+    section {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+    /* Cards */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(219, 39, 119, 0.1);
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      transition: box-shadow 0.3s ease;
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 20px 40px rgba(219, 39, 119, 0.2);
+      outline: none;
+    }
+    /* Grid layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    @media (max-width: 640px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      nav a {
+        margin-left: 16px;
+      }
+    }
+    /* Lists */
+    ul.skills-list,
+    ul.hobbies-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    ul.skills-list li,
+    ul.hobbies-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    ul.skills-list li .material-icons,
+    ul.hobbies-list li .material-icons {
+      color: #db2777;
+      margin-right: 12px;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background-color: #db2777;
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      user-select: none;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #9333ea;
+      outline: none;
+    }
+    /* Footer */
+    footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 24px 12px;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    /* Profile image placeholder */
+    .profile-image {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: #db2777;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+      box-shadow: 0 8px 24px rgba(219, 39, 119, 0.3);
+      color: white;
+      font-weight: 900;
+      font-size: 3rem;
+      user-select: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    /* Section Titles */
+    .section-title {
+      color: #db2777;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    /* Project image */
+    .project-image {
+      width: 100%;
+      height: 200px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(219, 39, 119, 0.1);
+      margin-bottom: 24px;
+    }
+    /* Project card */
+    .project-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-10px);
+      outline: none;
+    }
+    /* Responsive typography scaling */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Site header">
+    <div class="header-inner">
+      <div class="logo" tabindex="0">SAMRAT BANERJEE</div>
+      <nav role="navigation" aria-label="Primary navigation">
+        <a href="#about" tabindex="0">About</a>
+        <a href="#education" tabindex="0">Education</a>
+        <a href="#skills" tabindex="0">Skills</a>
+        <a href="#projects" tabindex="0">Projects</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section id="about" tabindex="0" aria-labelledby="about-title">
+      <h1 class="section-title" id="about-title">About Me</h1>
+      <div class="profile-image" aria-hidden="true" title="Profile image placeholder">
+        SB
+      </div>
+      <p><strong>Name:</strong> Samrat Banerjee</p>
+      <p><strong>Location:</strong> Purulia, West Bengal, India</p>
+      <p>I am an aspiring software developer with a diploma in computer science and engineering and a passion for coding and problem solving. I am eager to contribute to innovative software projects and continuously improve my skills.</p>
+    </section>
+
+    <section id="education" tabindex="0" aria-labelledby="education-title">
+      <h2 class="section-title" id="education-title">Education</h2>
+      <div class="card" role="region" aria-label="Education details">
+        <h3>Diploma in Computer Science and Engineering</h3>
+        <p><strong>Institution:</strong> Netaji Subhas Engineering Collage</p>
+        <p><strong>Qualification:</strong> Diploma</p>
+      </div>
+      <div class="card" role="region" aria-label="Schooling details">
+        <h3>Schooling</h3>
+        <p><strong>School:</strong> DSK DAV Public School, Purulia</p>
+      </div>
+      <div class="card" role="region" aria-label="Additional course information">
+        <h3>Additional Course</h3>
+        <p>Diploma in Information technology (DITA)</p>
+      </div>
+    </section>
+
+    <section id="skills" tabindex="0" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Technical Skills</h2>
+      <ul class="skills-list" role="list" aria-label="Coding knowledge">
+        <li><span class="material-icons" aria-hidden="true">code</span>HTML</li>
+        <li><span class="material-icons" aria-hidden="true">palette</span>CSS</li>
+        <li><span class="material-icons" aria-hidden="true">memory</span>Basic JavaScript</li>
+      </ul>
+    </section>
+
+    <section id="hobbies" tabindex="0" aria-labelledby="hobbies-title">
+      <h2 class="section-title" id="hobbies-title">Hobbies & Interests</h2>
+      <ul class="hobbies-list" role="list" aria-label="Hobbies">
+        <li><span class="material-icons" aria-hidden="true">sports_cricket</span>Cricket</li>
+        <li><span class="material-icons" aria-hidden="true">sports_football</span>Football</li>
+        <li><span class="material-icons" aria-hidden="true">code</span>Coding</li>
+        <li><span class="material-icons" aria-hidden="true">tour</span>Traveling</li>
+      </ul>
+    </section>
+
+    <section id="projects" tabindex="0" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+      <article class="card project-card" tabindex="0" aria-labelledby="project-1-title" role="region">
+        <img
+          src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5edeaee1-88b4-474d-a3fe-92539646820f.png"
+          alt="E-COMMERCE WEBSITE ONLY USER INTERFACE FRONTEND DEVELOPER "
+          class="project-image"
+          loading="lazy"
+          width="720"
+          height="320"
+        />
+        <h3 id="project-1-title">Modern Travel Planning Application</h3>
+        <p>
+          Developed a comprehensive travel platform with itinerary management, booking simulation, and travel insights. This app includes destination discovery with autocomplete search, trip creation and budgeting, interactive itinerary drag-and-drop scheduling, booking management, weather forecast, and map integration.
+        </p>
+        <p>
+          Key features implemented:
+          <ul>
+            <li>Trip planning with multiple travelers and budget tracking</li>
+            <li>Interactive itinerary builder with day-by-day activities</li>
+            <li>Booking management for flights, hotels, and activities</li>
+            <li>Travel document organizer and packing list generator</li>
+            <li>Weather forecasts and points of interest on maps</li>
+            <li>Sharing and collaboration support with offline access</li>
+             <li>Build a complete Responsive e-commerce website </li>
+
+          </ul>
+        </p>
+      </article>
+    </section>
+
+    <section id="contact" tabindex="0" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact</h2>
+      <p>If you'd like to get in touch, please feel free to reach out via email or LinkedIn.</p>
+      <p><strong>Email:</strong> <a href="mailto:samratbanerjee1979@gmail.com">samratbanerjee1979@gmail.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href=https://www.linkedin.com/in/samrat-banerjee-45839736a?utm_source=share_via&utm_content=profile&utm_medium=member_android target="_blank" rel="noopener noreferrer">linkedin.com/in/samratbanerjee</a></p>
+      <p><a href="#about" class="btn-primary" role="button">Back to Top </a></p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>© 2026 Samrat Banerjee. All rights reserved.</p>
+  </footer>
+</body>
+</html>
